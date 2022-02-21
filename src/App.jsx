@@ -29,6 +29,7 @@ import { useState } from 'react';
 import MonRouteur from './components/MonRouteur';
 import MonMenu from './components/MonMenu';
 import MonHeader from './components/MonHeader';
+import MonFooter from './components/MonFooter'
 
 setupIonicReact();
 
@@ -61,6 +62,8 @@ const App = () => {
         <IonContent className="ion-padding">
           <MonRouteur handlePage={handlePage} page={page} />
         </IonContent>
+        
+          <MonFooter></MonFooter>
       </IonPage>
     </IonApp>
   )

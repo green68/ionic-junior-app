@@ -8,10 +8,10 @@ const About = ({ handlePage }) => {
         < >
             <IonButton onClick={ () => handlePage(pages.home.name)}>
                 <IonIcon icon={chevronBackOutline}></IonIcon>
-                Home
+                {pages.home.title}
             </IonButton>
 
-            <p>Page à Propos</p>
+            <h1>{pages.about.title}</h1>
         </>
     );
 };

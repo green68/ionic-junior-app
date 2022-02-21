@@ -5,7 +5,6 @@ import {
   setupIonicReact
 } from '@ionic/react';
 
-
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
 
@@ -26,10 +25,10 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 
 import { useState } from 'react';
-import MonRouteur from './components/MonRouteur';
-import MonMenu from './components/MonMenu';
-import MonHeader from './components/MonHeader';
-import MonFooter from './components/MonFooter'
+import Routeur from './components/Routeur';
+import Menu from './components/Menu';
+import Header from './components/Header';
+import Footer from './components/Footer'
 
 setupIonicReact();
 
@@ -42,10 +41,9 @@ const App = () => {
   const [page, setPage] = useState("home")
 
   const handlePage = (newPage) => {
-    // debugger
-    console.log(`newPage: ${newPage}`)
-
-    setPage(newPage)
+    console.log(`newPage: ${newPage}`);
+    if (page !== newPage) setPage(newPage)
+    console.log("dans App.handlePage");
   }
   const handleConnexion = () => {
     return true
@@ -53,17 +51,19 @@ const App = () => {
 
   return (
     <IonApp>
-      <MonMenu page={page} handlePage={handlePage} >
+      <Menu page={page} handlePage={handlePage} >
         {children}
-      </MonMenu>
+      </Menu>
 
       <IonPage id="custom">
-        <MonHeader handleConnexion={handleConnexion}></MonHeader>
+        <Header handleConnexion={handleConnexion}></Header>
+
         <IonContent className="ion-padding">
-          <MonRouteur handlePage={handlePage} page={page} />
+          <Routeur handlePage={handlePage} page={page} />
         </IonContent>
-        
-          <MonFooter></MonFooter>
+
+        <Footer></Footer>
+
       </IonPage>
     </IonApp>
   )

@@ -1,16 +1,18 @@
-import { IonContent, IonButton, IonIcon } from '@ionic/react';
+import { IonButton, IonIcon } from '@ionic/react';
 import { chevronBackOutline } from 'ionicons/icons';
-const About = ({ changePage }) => {
+import { pages } from '../components/Routeur';
+
+const About = ({ handlePage }) => {
 
     return (
-        <IonContent >
-            <IonButton onClick={changePage} data-menu="home">
+        < >
+            <IonButton onClick={ () => handlePage(pages.home.name)}>
                 <IonIcon icon={chevronBackOutline}></IonIcon>
                 Home
             </IonButton>
 
             <p>Page à Propos</p>
-        </IonContent>
+        </>
     );
 };
 

@@ -1,22 +1,15 @@
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonButton } from '@ionic/react';
+import { IonContent, IonButton } from '@ionic/react';
 
-const About = () => {
-
-    console.log("about");
+const About = ({changePage}) => {
 
     return (
-        <IonPage>
-            <IonHeader>
-                <IonToolbar>
-                    <IonButton href='/home'>Home</IonButton>
-                </IonToolbar>
-            </IonHeader>
+        <IonContent>
+            <IonButton onClick={changePage} data-menu="home">Home</IonButton>
+            
             <IonContent className="ion-padding">
-                <p>
-                    About
-                </p>
+                <p>Page à Propos</p>
             </IonContent>
-        </IonPage>
+        </IonContent>
     );
 };
 

@@ -1,5 +1,7 @@
 import {
   IonApp,
+  IonContent,
+  IonPage,
   setupIonicReact
 } from '@ionic/react';
 
@@ -22,23 +24,44 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
-import { MenuExample } from './pages/MenuExample';
+
 import { useState } from 'react';
+import MonRouteur from './components/MonRouteur';
+import MonMenu from './components/MonMenu';
+import MonHeader from './components/MonHeader';
 
 setupIonicReact();
 
-const App: React.FC = () => {
+const App = () => {
+
+  const children = null
 
   const [isConnected, setIsConnected] = useState(false)
 
-  const handleConnexion = () => {
+  const [page, setPage] = useState("home")
 
+  const handlePage = (newPage) => {
+    // debugger
+    console.log(`newPage: ${newPage}`)
+
+    setPage(newPage)
+  }
+  const handleConnexion = () => {
+    return true
   }
 
   return (
     <IonApp>
-      <MenuExample isConnected={isConnected}>
-        </MenuExample>
+      <MonMenu page={page} handlePage={handlePage} >
+        {children}
+      </MonMenu>
+
+      <IonPage id="custom">
+        <MonHeader handleConnexion={handleConnexion}></MonHeader>
+        <IonContent className="ion-padding">
+          <MonRouteur handlePage={handlePage} page={page} />
+        </IonContent>
+      </IonPage>
     </IonApp>
   )
 }

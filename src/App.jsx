@@ -1,8 +1,11 @@
 import {
   IonApp,
+  IonButton,
   IonContent,
+  IonModal,
   IonPage,
-  setupIonicReact
+  setupIonicReact,
+  useIonModal
 } from '@ionic/react';
 
 /* Core CSS required for Ionic components to work properly */
@@ -24,11 +27,14 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
+import './moncss.css'
+
 import { useState } from 'react';
 import Routeur from './components/Routeur';
 import Menu from './components/Menu';
 import Header from './components/Header';
 import Footer from './components/Footer'
+import Connexion from './components/Connexion';
 
 setupIonicReact();
 
@@ -37,6 +43,8 @@ const App = () => {
   const children = null
 
   const [isConnected, setIsConnected] = useState(false)
+  const [showConnexion, setshowConnexion] = useState(false)
+  const [showModal, setShowModal] = useState(false)
 
   const [page, setPage] = useState("home")
 
@@ -45,8 +53,10 @@ const App = () => {
     if (page !== newPage) setPage(newPage)
     console.log("dans App.handlePage");
   }
-  const handleConnexion = () => {
-    return true
+
+  const handleConnexion = (value = false) => {
+    console.log("avant handleConnexion", value);
+    setShowModal(value)
   }
 
   return (
@@ -60,10 +70,15 @@ const App = () => {
 
         <IonContent className="ion-padding">
           <Routeur handlePage={handlePage} page={page} />
+          {/* <IonModal isOpen={showModal} cssClass='my-custom-class'>
+            <p>This is modal content</p>
+            <IonButton onClick={() => setShowModal(false)}>Close Modal</IonButton>
+          </IonModal> */}
         </IonContent>
 
         <Footer></Footer>
 
+          <Connexion isShow={showModal} handleConnexion={handleConnexion}></Connexion>
       </IonPage>
     </IonApp>
   )

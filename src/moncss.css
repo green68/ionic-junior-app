@@ -1,0 +1,22 @@
+.modal-connexion {
+    opacity: 0.8;
+}
+
+.modal-connexion #ion-react-wrapper {
+    background-color: rgba(0,0,0,.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-connexion .modal {
+    --border-radius: 4px;
+    border-radius: var(--border-radius);
+    background-color: white;
+    opacity: 1;
+    padding: 1rem;
+
+}
+
+.modal-shadow {
+
+}

@@ -13,7 +13,7 @@ const Header = ({handleConnexion}) => {
                 </IonButton>
                 </IonButtons>
                 <IonButtons slot='primary'>
-                    <IonButton id='btn-connect' color='primary' fill='solid' size='small' onClick={handleConnexion} >
+                    <IonButton id='btn-connect' color='primary' fill='solid' size='small' onClick={() => handleConnexion(true)} >
                         <IonLabel>Connexion</IonLabel>
                         {/* <IonIcon icon={personCircle} /> */}
                     </IonButton>
